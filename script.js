@@ -31,6 +31,7 @@ const COLORES_HEROES = {
   Bastion: "#67ECEE",
   Brigitte: "#67453E",
   Cassidy: "#782326",
+  Doctrine: "#55031F",
   "D.Mon": "#B22A32",
   "D.Va": "#CA4F85",
   Domina: "#45E6F0",
@@ -186,30 +187,31 @@ const GRID_HEROES = [
   { nombre: "Sierra", x: 1037, y: 1212},
   { nombre: "Sojourn", x: 1124, y: 1212 },
   { nombre: "Soldier: 76", x: 1212.5, y: 1212 },
-  { nombre: "Sombra", x: 1302, y: 1212 },
+  { nombre: "Symmetra", x: 1302, y: 1212 },
 
-  { nombre: "Symmetra", x: 724.5, y: 1306 },
-  { nombre: "Torbjörn", x: 814.5, y: 1306 },
-  { nombre: "Tracer", x: 903.5, y: 1306 },
-  { nombre: "Vendetta", x: 992, y: 1306 },
-  { nombre: "Venture", x: 1081.5, y: 1306 },
-  { nombre: "Widow", x: 1171.5, y: 1306 },
+  { nombre: "Torbjörn", x: 772, y: 1306 },
+  { nombre: "Tracer", x: 859, y: 1306 },
+  { nombre: "Vendetta", x: 948, y: 1306 },
+  { nombre: "Venture", x: 1037, y: 1306 },
+  { nombre: "Widow", x: 1124, y: 1306 },
 
   { nombre: "Ana", x: 596, y: 1496 },
-  { nombre: "Baptiste", x: 683, y: 1496 },
+  { nombre: "Baptiste", x: 683.5, y: 1496 },
   { nombre: "Brigitte", x: 772, y: 1496 },
-  { nombre: "Illari", x: 859.5, y: 1496 },
-  { nombre: "Jetpack Cat", x: 948, y: 1496 },
-  { nombre: "Juno", x: 1037, y: 1496 },
-  { nombre: "Kiriko", x: 1124, y: 1496 },
-  { nombre: "Lifeweaver", x: 1212.5, y: 1496 },
-  { nombre: "Lúcio", x: 1301, y: 1496 },
+  { nombre: "Doctrine", x: 861, y: 1496 },
+  { nombre: "Illari", x: 949, y: 1496 },
+  { nombre: "Jetpack Cat", x: 1038, y: 1496 },
+  { nombre: "Juno", x: 1125, y: 1496 },
+  { nombre: "Kiriko", x: 1214, y: 1496 },
+  { nombre: "Lifeweaver", x: 1301, y: 1496 },
 
+  { nombre: "Lúcio", x: 683.5, y: 1589},
   { nombre: "Mercy", x: 773, y: 1589 },
-  { nombre: "Mizuki", x: 860, y: 1589 },
-  { nombre: "Moira", x: 948, y: 1589 },
-  { nombre: "Wuyang", x: 1038, y: 1589 },
-  { nombre: "Zenyatta", x: 1128, y: 1589 },
+  { nombre: "Mizuki", x: 861.5, y: 1589 },
+  { nombre: "Moira", x: 949, y: 1589 },
+  { nombre: "Sombra", x: 1038, y: 1589 },
+  { nombre: "Wuyang", x: 1128, y: 1589 },
+  { nombre: "Zenyatta", x: 1214, y: 1589 }
 ];
 
 
@@ -224,20 +226,20 @@ const HITBOXES_EXT = {
   ],
   competitivo: {
     tanque: {
-      icono: { x: 560, y: 331, w: 40, h: 40 },
-      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 335),
+      icono: { x: 560, y: 296, w: 40, h: 40 },
+      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 303  ),
     },
     dps: {
-      icono: { x: 560, y: 405, w: 40, h: 40 },
-      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 410),
+      icono: { x: 560, y: 371, w: 40, h: 40 },
+      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 375),
     },
     apoyo: {
-      icono: { x: 560, y: 482, w: 40, h: 40 },
-      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 487),
+      icono: { x: 560, y: 445, w: 40, h: 40 },
+      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 450),
     },
     filaAbierta: {
-      icono: { x: 560, y: 553, w: 40, h: 40 },
-      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 558),
+      icono: { x: 560, y: 520, w: 40, h: 40 },
+      rangos: generarFilaManual([630, 686, 739, 794, 848, 903, 964, 1032, 1109, 1183], 525),
     },
   }
 };
@@ -246,16 +248,14 @@ let estado = {
   btag: "USUARIO#1234",
   genero: "",
   prons: "",
-  edad: "",
+  cumpleanyos: "DD-MM-YYYY",
   anyo: "",
   plataforma: "",
   país: "",
   topMas: Array(10).fill().map(() => ({ nombre: "- Héroe -", horas: "", nivel: "" })),
   topMenos: Array(10).fill().map(() => ({ nombre: "- Héroe -", horas: "", nivel: "" })),
   maestria: Array(5).fill().map(() => ({ nombre: "- Héroe -", valor: "0" })),
-  rangoRoleQ: Array(3).fill().map(() => ({ nombre: "- Héroe -", valor: "0" })),
-  rangoOpenQ: Array(3).fill().map(() => ({ nombre: "- Héroe -", valor: "0" })),
-  horasModos: Array(6).fill("0"),
+  horasModos: Array(6).fill(""),
   dias: [],
 
   heroeFav: "",
@@ -273,19 +273,19 @@ let estado = {
     filaAbierta: { rango: null, x: false, division: "", peak: "" },
   },
   habilidades: {},
-  horasRoles: Array(3).fill("0"),
+  horasRoles: Array(3).fill(""),
 };
 
 let heroeSeleccionadoActual = null;
 
 const COORDS = {
-  btag: { x: 204, y: 339 },
-  genero: { x: 160, y: 381 },
-  prons: { x: 230, y: 422 },
-  edad: {x: 130, y: 465},
-  anyo: { x: 242, y: 507 },
-  plataforma: { x: 230, y: 549 },
-  pais: { x: 120, y: 591 },
+  btag: { x: 221, y: 313 },
+  genero: { x: 169, y: 360 },
+  prons: { x: 248, y: 405 },
+  cumpleanyos: {x: 254, y: 451 },
+  anyo: { x: 268, y: 497 },
+  plataforma: { x: 250, y: 543 },
+  pais: { x: 127, y: 589 },
 
   heroeFav: { x: 255, y: 740 },
   heroeOdiado: { x: 255, y: 791 },
@@ -311,7 +311,7 @@ const COORDS = {
   horasRoles: { x: 99, y: 1379, salto: 174 },
 
 
-  topMas: { xIcono: 1445, xHoras: 1529, xNivel: 1620, y: 350, salto: 64 },
+  topMas: { xIcono: 1445, xHoras: 1529, xNivel: 1620, y: 337, salto: 64 },
   topMenos: { xIcono: 1445, xHoras: 1529, xNivel: 1620, y: 1074, salto: 64 },
 };
 
@@ -373,28 +373,6 @@ function dibujarLista(data, config) {
   });
 }
 
-function dibujarListaRangos(data, config) {
-  data.forEach((item, i) => {
-    if (item.nombre.startsWith("-")) return;
-    let y = config.y + i * config.salto;
-    
-    ctx.fillStyle = COLORES_HEROES[item.nombre] || "white";
-    ctx.textAlign = "left";
-    ctx.font = "Bold   24px Barlow";
-    ctx.fillText(item.nombre, config.xNombre, y);
-    
-    const rangoAuto = calcularRango(item.valor);
-    if (rangoAuto !== "- Rango -") {
-        const src = getIcon(rangoAuto);
-        dibujarImagenPerezosa(src, config.xRango - 16 + 5, y - 43 + 5, 37, 37);
-    }
-
-    ctx.fillStyle = "white";
-    ctx.textAlign = "center";
-    ctx.fillText(item.valor, config.xValor, y);
-  });
-}
-
 function actualizar() {
   ctx.drawImage(imgPlantilla, 0, 0);
   ctx.fillStyle = "white";
@@ -405,7 +383,7 @@ function actualizar() {
   ctx.font = "bold 22px Barlow";
   ctx.fillText(estado.genero, COORDS.genero.x, COORDS.genero.y);
   ctx.fillText(estado.prons, COORDS.prons.x, COORDS.prons.y);
-  ctx.fillText(estado.edad, COORDS.edad.x, COORDS.edad.y);
+  ctx.fillText(estado.cumpleanyos, COORDS.cumpleanyos.x, COORDS.cumpleanyos.y);
   ctx.fillText(estado.anyo, COORDS.anyo.x, COORDS.anyo.y);
   ctx.fillText(estado.plataforma, COORDS.plataforma.x, COORDS.plataforma.y);
   ctx.fillText(estado.país, COORDS.pais.x, COORDS.pais.y);
@@ -424,9 +402,6 @@ function actualizar() {
 
   dibujarLista(estado.topMas, COORDS.topMas);
   dibujarLista(estado.topMenos, COORDS.topMenos);
-  
-  dibujarListaRangos(estado.rangoRoleQ, COORDS.rangoRoleQ);
-  dibujarListaRangos(estado.rangoOpenQ, COORDS.rangoOpenQ);
 
   ctx.textAlign = "center";
   ctx.font = "bold 22px Barlow";  
@@ -634,8 +609,8 @@ function renderSeccion(idCont, arr, tipo) {
                     <span style="font-size: 1rem;">${item.nombre}</span>
                 </div>
                 
-                <input type="text" value="${item.horas}" placeholder="Hrs" oninput="updateVal('${tipo}', ${i}, 'horas', this.value)" class="input-valor" style="margin:0; text-align:center; font-size: 0.9rem;">
-                <input type="text" value="${item.nivel}" placeholder="Nvl" oninput="updateVal('${tipo}', ${i}, 'nivel', this.value)" class="input-valor" style="margin:0; text-align:center; font-size: 0.9rem;">
+                <input type="text" value="${item.horas}" placeholder="Nvl" oninput="updateVal('${tipo}', ${i}, 'horas', this.value)" class="input-valor" style="margin:0; text-align:center; font-size: 0.9rem;">
+                <input type="text" value="${item.nivel}" placeholder="Hrs" oninput="updateVal('${tipo}', ${i}, 'nivel', this.value)" class="input-valor" style="margin:0; text-align:center; font-size: 0.9rem;">
                 
                 <div id="drop-${tipo}-${i}" class="select-items">
                     <input type="text" placeholder="Buscar héroe..." class="search-bar" 
@@ -816,7 +791,7 @@ setupInput("in-mapaOdiado", "mapaOdiado");
 setupInput("in-skinFav", "skinFav");
 setupInput("in-modoFav", "modoFav");
 setupInput("in-genero", "genero");
-setupInput("in-edad", "edad");
+setupInput("in-cumpleanyos", "cumpleanyos");
 
 [0, 1, 2].forEach((i) => {
   const el = document.getElementById(`in-horas-${i}`);
