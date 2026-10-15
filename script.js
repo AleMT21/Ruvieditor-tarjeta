@@ -159,7 +159,7 @@ const GRID_HEROES = [
   { nombre: "Hazard", x: 947, y: 854 },
   { nombre: "JQ", x: 1036, y: 854 },
   { nombre: "Mauga", x: 1125, y: 854 },
-  { nombre: "Orisa", x: 1212, y: 854 },
+  { nombre: "Orisa", x: 1214, y: 854 },
   { nombre: "Ramattra", x: 1303, y: 854 },
 
   { nombre: "Reinhardt", x: 724.5, y: 949 },
@@ -303,10 +303,10 @@ const COORDS = {
   },
 
   compTextos: {
-    tanque: { peakX: 1288, peakY: 369 },
-    dps: {  peakX: 1288, peakY: 440 },
-    apoyo: {  peakX: 1288, peakY: 517},
-    filaAbierta: {  peakX: 1288, peakY: 592 },
+    tanque: { peakX: 1288, peakY: 336 },
+    dps: {  peakX: 1288, peakY: 411 },
+    apoyo: {  peakX: 1288, peakY: 485},
+    filaAbierta: {  peakX: 1288, peakY: 555 },
   },
   horasRoles: { x: 99, y: 1379, salto: 174 },
 
